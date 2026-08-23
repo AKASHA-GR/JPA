@@ -10,6 +10,7 @@ import lombok.*;
 @ToString
 @Data
 @Entity
+@Table(name = "login_entity")
 public class LoginEntity {
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)

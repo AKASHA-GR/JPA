@@ -1,0 +1,10 @@
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence" version="3.0">
+    <persistence-unit name="akasha">
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"></property>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/feedback_db"></property>
+            <property name="jakarta.persistence.jdbc.user" value="root"></property>
+            <property name="jakarta.persistence.jdbc.password" value="Akasha@123"></property>
+        </properties>
+    </persistence-unit>
+</persistence>

@@ -10,6 +10,7 @@ import lombok.*;
 @NoArgsConstructor
 @Data
 @Entity
+@Table(name = "juice_info")
 public class JuiceEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
