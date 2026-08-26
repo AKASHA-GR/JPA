@@ -1,7 +1,7 @@
 package com.xworkz.services.impl;
 
 import com.xworkz.dao.SignInDAO;
-import com.xworkz.dao.SignInDAOImpl;
+import com.xworkz.dao.impl.SignInDAOImpl;
 import com.xworkz.dto.SignInDTO;
 import com.xworkz.entity.SignInEntity;
 import com.xworkz.services.SingInService;

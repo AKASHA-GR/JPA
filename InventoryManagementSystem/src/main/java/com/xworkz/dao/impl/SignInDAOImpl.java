@@ -1,12 +1,9 @@
-package com.xworkz.dao;
+package com.xworkz.dao.impl;
 
+import com.xworkz.dao.SignInDAO;
 import com.xworkz.entity.SignInEntity;
 
 import javax.persistence.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 
 public class SignInDAOImpl implements SignInDAO {
     @Override
