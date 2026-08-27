@@ -7,13 +7,14 @@ import java.io.Serializable;
 @Getter
 @Setter
 @ToString
-@AllArgsConstructor
-@NoArgsConstructor
+
 
 public class SignInDTO implements Serializable{
     private String userName;
     private String email;
 
-
-
+    public SignInDTO(String userName, String email) {
+        this.userName = userName;
+        this.email = email;
+    }
 }

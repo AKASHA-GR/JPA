@@ -12,8 +12,8 @@ import javax.persistence.Table;
 @Getter
 @Setter
 @ToString
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "sign_in")
 public class SignInEntity {
@@ -24,4 +24,5 @@ public class SignInEntity {
     private String userName;
     @Column(name = "email")
     private String email;
+
 }

@@ -1,4 +1,4 @@
-package com.xworkz;
+package com.xworkz.Runner;
 
 import com.xworkz.dto.SignUpDTO;
 import com.xworkz.services.SignUpService;
