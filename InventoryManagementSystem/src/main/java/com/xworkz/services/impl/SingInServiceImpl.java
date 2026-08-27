@@ -6,6 +6,8 @@ import com.xworkz.dto.SignInDTO;
 import com.xworkz.entity.SignInEntity;
 import com.xworkz.services.SingInService;
 
+import java.util.List;
+
 public class SingInServiceImpl implements SingInService {
     @Override
     public boolean validateAndSave(SignInDTO signInDTO) {
@@ -21,5 +23,12 @@ public class SingInServiceImpl implements SingInService {
 
         SignInDAO signInDAO = new SignInDAOImpl();
         return signInDAO.save(signInEntity);
+    }
+
+    @Override
+    public String validateAndSave(List<SignInDTO> signInDTOList) {
+
+
+        return "";
     }
 }

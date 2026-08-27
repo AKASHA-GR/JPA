@@ -4,6 +4,7 @@ import com.xworkz.dao.SignUpDAO;
 import com.xworkz.entity.SignUpEntity;
 
 import javax.persistence.*;
+import java.util.List;
 
 public class SignUPDAOImpl implements SignUpDAO {
     @Override
@@ -40,6 +41,66 @@ public class SignUPDAOImpl implements SignUpDAO {
         }
 
         return isSaved;
+    }
+
+    @Override
+    public Boolean saveAll(List<SignUpEntity> sign) {
+        System.out.println("Save the list of Data");
+
+        Boolean isSaved = false;
+
+        EntityManagerFactory emf = null;
+        EntityManager em = null;
+        EntityTransaction et =null;
+
+
+        try {
+            emf = Persistence.createEntityManagerFactory("akasha");
+            em = emf.createEntityManager();
+            et = em.getTransaction();
+
+            et.begin();
+
+            for(SignUpEntity entity:sign){
+                em.persist(entity);
+            }
+
+            isSaved = true;
+            et.commit();
+
+        } catch (PersistenceException e) {
+            e.getMessage();
+            isSaved = false;
+        }finally {
+            if(emf != null){
+                emf.close();
+            }
+
+            if(em != null){
+                em.close();
+            }
+        }
+        return isSaved;
+    }
+
+    @Override
+    public SignUpEntity getSignEntity(Integer id) {
+        System.out.println("geting Entity: Dto by id:"+id);
+        SignUpEntity entity = null;
+        EntityManagerFactory emf = null;
+
+        try{
+            entity = Persistence.createEntityManagerFactory("akasha").createEntityManager().find(SignUpEntity.class, id);
+        }catch (PersistenceException e){
+            e.printStackTrace();
+            entity = null;
+        }finally {
+            if(emf != null){
+                emf.close();
+            }
+        }
+
+        return entity;
     }
 
 

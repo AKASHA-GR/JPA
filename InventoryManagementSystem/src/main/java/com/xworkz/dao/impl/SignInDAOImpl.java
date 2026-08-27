@@ -10,7 +10,7 @@ public class SignInDAOImpl implements SignInDAO {
     public boolean save(SignInEntity signInEntity){
         System.out.println("The save method is running on SignInDAOImpl.");
         System.out.println("SignIn Entity: " + signInEntity);
-
+        Boolean isSaved = false;
         EntityManagerFactory emf = null;
         EntityManager em =null;
         EntityTransaction et = null;
@@ -33,7 +33,7 @@ public class SignInDAOImpl implements SignInDAO {
             if(et != null && et.isActive()){
                 et.rollback();
             }
-            return false;
+            return isSaved;
         }finally {
             if(emf != null){
                 emf.close();
@@ -45,6 +45,6 @@ public class SignInDAOImpl implements SignInDAO {
         }
 
 
-        return true;
+        return isSaved;
     }
 }
