@@ -11,4 +11,7 @@ public interface SignUpDAO {
     Boolean saveAll(List<SignUpEntity> sign);
 
     public SignUpEntity getSignEntity(Integer id);
+
+    public SignUpEntity getSignEntity(String name);
+
 }

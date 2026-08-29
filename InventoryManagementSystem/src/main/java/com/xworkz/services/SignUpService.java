@@ -10,4 +10,8 @@ public interface SignUpService {
     public String saveAndValidate(List<SignUpDTO> sign);
 
     public SignUpDTO findSignUpDTOById(Integer id);
+
+    public SignUpDTO findSignUpDTOById(String name);
+
+
 }
