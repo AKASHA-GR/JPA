@@ -11,7 +11,6 @@ public interface SignUpService {
 
     public SignUpDTO findSignUpDTOById(Integer id);
 
-    public SignUpDTO findSignUpDTOById(String name);
 
 
 }

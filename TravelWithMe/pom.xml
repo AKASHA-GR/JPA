@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.xworkz</groupId>
-    <artifactId>Food_delivery_system</artifactId>
+    <artifactId>TravelWithMe</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -41,5 +41,6 @@
             </version>
         </dependency>
     </dependencies>
+
 
 </project>

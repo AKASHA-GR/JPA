@@ -34,8 +34,5 @@ public class SignUpRunner {
         SignUpDTO signUpDTO1 = signUpService1.findSignUpDTOById(8);
         System.out.println("Fount dto is:"+signUpDTO1);
 
-        //find by name
-        SignUpDTO signUpDTO2 = signUpService1.findSignUpDTOById("Harish");
-        System.out.println("Fount dto is:"+ signUpDTO2);
     }
 }

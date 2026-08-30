@@ -103,25 +103,5 @@ public class SignUPDAOImpl implements SignUpDAO {
         return entity;
     }
 
-    @Override
-    public SignUpEntity getSignEntity(String name) {
-        System.out.println("geting Entity: Dto by name:"+name);
-        SignUpEntity entity = null;
-        EntityManagerFactory emf = null;
-
-        try{
-            entity = Persistence.createEntityManagerFactory("akasha").createEntityManager().find(SignUpEntity.class, name);
-        }catch (PersistenceException e){
-            e.printStackTrace();
-            entity = null;
-        }finally {
-            if(emf != null){
-                emf.close();
-            }
-        }
-
-        return entity;
-    }
-
 
 }

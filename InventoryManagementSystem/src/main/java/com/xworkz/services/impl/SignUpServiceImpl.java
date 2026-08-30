@@ -95,20 +95,4 @@ public class SignUpServiceImpl implements SignUpService {
         return dto;
     }
 
-    @Override
-    public SignUpDTO findSignUpDTOById(String name) {
-        System.out.println("Geting dto by name:"+name);
-        SignUpDTO dto = null;
-        if(name != null){
-            SignUpEntity entity = signUpDAO.getSignEntity(name);
-
-            if(entity != null){
-                dto = new SignUpDTO(entity.getName(), entity.getEmail(), entity.getPassword(), entity.getPhoneNumber());
-            }
-        }else {
-            dto = null;
-        }
-
-        return dto;
-    }
 }
