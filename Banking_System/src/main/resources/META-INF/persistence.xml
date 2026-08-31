@@ -2,7 +2,7 @@
     <persistence-unit name="akasha">
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"></property>
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/movie_db"></property>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/bank_db"></property>
             <property name="javax.persistence.jdbc.user" value="root"></property>
             <property name="javax.persistence.jdbc.password" value="Akasha@123"></property>
         </properties>
