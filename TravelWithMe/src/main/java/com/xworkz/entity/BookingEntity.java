@@ -12,21 +12,22 @@ import java.time.LocalTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "booking_info")
 public class BookingEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(name = "customerName")
+    @Column(name = "customer_Name")
     private String customerName;
-    @Column(name = "phoneNumber")
+    @Column(name = "phone_Number")
     private String phoneNumber;
     @Column(name = "email")
     private String email;
-    @Column(name = "bookingDate")
+    @Column(name = "booking_Date")
     private LocalDate bookingDate;
-    @Column(name = "bookingTime")
+    @Column(name = "booking_Time")
     private LocalTime bookingTime;
-    @Column(name = "numberOfGuests")
+    @Column(name = "number_Of_Guests")
     private Integer numberOfGuests;
 
     public BookingEntity(String customerName, String phoneNumber, String email, LocalDate bookingDate, LocalTime bookingTime, Integer numberOfGuests) {

@@ -1,15 +1,15 @@
 package com.xworkz.dao.impl;
 
-import com.xworkz.dao.BookingDAO;
-import com.xworkz.entity.BookingEntity;
+import com.xworkz.dao.MovieDetailsDAO;
+import com.xworkz.entity.MovieDetailsEntity;
 
 import javax.persistence.*;
 import java.util.List;
 
-public class BookingDAOImpl implements BookingDAO {
+public class MovieDetailsDAOImpl implements MovieDetailsDAO {
+
     @Override
-    public Boolean save(BookingEntity bookingEntity) {
-        System.out.println("The saving the Entity to DB.");
+    public Boolean save(MovieDetailsEntity movieDetailsEntity) {
         Boolean save = false;
 
         EntityManagerFactory emf = null;
@@ -22,21 +22,18 @@ public class BookingDAOImpl implements BookingDAO {
             et = em.getTransaction();
 
             et.begin();
-            em.persist(bookingEntity);
+            em.persist(movieDetailsEntity);
             et.commit();
             save = true;
-
-        }catch (PersistenceException e) {
-            e.printStackTrace();
-            save = false;
-            if (et != null && et.isActive()) {
-                et.rollback();
-            }
-        } finally {
+        }catch (PersistenceException e){
+            e.getMessage();
+            et.rollback();
+        }finally {
             if(emf != null){
                 emf.close();
             }
-            if (em != null) {
+
+            if(em != null){
                 em.close();
             }
         }
@@ -45,11 +42,10 @@ public class BookingDAOImpl implements BookingDAO {
     }
 
     @Override
-    public Boolean saveAll(List<BookingEntity> bookingEntityList) {
-        System.out.println("The list of bookingEntitis are saved");
-        Boolean isSaved = false;
+    public Boolean saveAll(List<MovieDetailsEntity> movieDetailsEntityList) {
+        Boolean save = false;
 
-        EntityManagerFactory emf =null;
+        EntityManagerFactory emf = null;
         EntityManager em = null;
         EntityTransaction et = null;
 
@@ -59,20 +55,25 @@ public class BookingDAOImpl implements BookingDAO {
             et = em.getTransaction();
 
             et.begin();
-
-            for (BookingEntity entity:bookingEntityList){
+            for(MovieDetailsEntity entity:movieDetailsEntityList){
                 em.persist(entity);
             }
+
             et.commit();
-            isSaved = true;
+            save = true;
         }catch (PersistenceException e){
             e.getMessage();
+            et.rollback();
+        }finally {
+            if(emf != null){
+                emf.close();
+            }
 
-            if(et != null && et.isActive()){
-                et.rollback();
+            if(em != null){
+                em.close();
             }
         }
 
-        return isSaved;
+        return save;
     }
 }
