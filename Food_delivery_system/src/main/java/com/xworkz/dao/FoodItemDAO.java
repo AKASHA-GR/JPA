@@ -10,4 +10,12 @@ public interface FoodItemDAO {
     public Boolean saveAll(List<FoodItemEntity> foodItemEntities);
 
     public FoodItemEntity getEntity(Integer id);
+
+    public FoodItemEntity getEntiyByNmae(String name);
+
+    public FoodItemEntity getEntityByPrice(Double price);
+
+    public FoodItemEntity getEntityByCategory(String category);
+
+    public FoodItemEntity getEntityByQuantity(Integer quantity);
 }

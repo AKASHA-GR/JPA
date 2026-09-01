@@ -71,4 +71,20 @@ public class FoodItemServiceImpl implements FoodItemService {
 
         return foodItemDTO;
     }
+
+    @Override
+    public FoodItemDTO findFoodDTOByName(String name) {
+        System.out.println();
+        FoodItemDTO foodItemDTO = null;
+
+        FoodItemEntity foodItemEntity = foodItemDAO.getEntiyByNmae(name);
+
+        System.out.println("The Data:"+foodItemEntity);
+
+        if(foodItemEntity != null){
+            foodItemDTO = new FoodItemDTO(foodItemEntity.getName(), foodItemEntity.getPrice(), foodItemEntity.getDescription(), foodItemEntity.getCategory(), foodItemEntity.getAvailable(),foodItemEntity.getQuantity());
+        }
+
+        return foodItemDTO;
+    }
 }

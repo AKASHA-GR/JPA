@@ -10,21 +10,28 @@ import java.util.List;
 public class FoodRunner {
     public static void main(String[] args) {
 
-        FoodItemDTO foodItemDTO = new FoodItemDTO("Dosa",70,"Less gee","Breakfast",true,2);
-        FoodItemService service = new FoodItemServiceImpl();
-        service.saveAndValidate(foodItemDTO);
-
-        List<FoodItemDTO> foodItemDTOList = new ArrayList<>();
-        foodItemDTOList.add(new FoodItemDTO("Idli",45,"2 Type of Chatni","Breakfast",true,4));
-        foodItemDTOList.add(new FoodItemDTO("Rice&Sambar",80,"Unlimited","Lunch",true,1));
-        foodItemDTOList.add(new FoodItemDTO("Roti",70,"2 Type of palya","dinner",true,2));
-
+//        FoodItemDTO foodItemDTO = new FoodItemDTO("Dosa",70,"Less gee","Breakfast",true,2);
+//        FoodItemService service = new FoodItemServiceImpl();
+//        service.saveAndValidate(foodItemDTO);
+//
+//        List<FoodItemDTO> foodItemDTOList = new ArrayList<>();
+//        foodItemDTOList.add(new FoodItemDTO("Idli",45,"2 Type of Chatni","Breakfast",true,4));
+//        foodItemDTOList.add(new FoodItemDTO("Rice&Sambar",80,"Unlimited","Lunch",true,1));
+//        foodItemDTOList.add(new FoodItemDTO("Roti",70,"2 Type of palya","dinner",true,2));
+//        foodItemDTOList.add(new FoodItemDTO("Pulao",120,"Spicy","Lunch",true,3));
+//        foodItemDTOList.add(new FoodItemDTO("Veg Biryani",150,"Aromatic","Dinner",true,2));
+//        foodItemDTOList.add(new FoodItemDTO("Curd Rice",50,"Cooling","Lunch",true,5));
+//
         FoodItemService service1 = new FoodItemServiceImpl();
-        service1.saveAndValidate(foodItemDTOList);
+//        service1.saveAndValidate(foodItemDTOList);
+//
+//        //find by Id
+//        FoodItemDTO foodItemDTO1 = service1.findFoodDTOById(7);
+//        System.out.println("The entity:"+foodItemDTO1);
 
-        //find by Id
-        FoodItemDTO foodItemDTO1 = service1.findFoodDTOById(7);
-        System.out.println("The entity:"+foodItemDTO1);
+        //find ny name
+        FoodItemDTO foodItemDTO2 = service1.findFoodDTOByName("adc");
+        System.out.println("The found name:"+foodItemDTO2);
 
     }
 }

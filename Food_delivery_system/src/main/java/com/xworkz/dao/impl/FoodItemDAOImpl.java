@@ -100,4 +100,129 @@ public class FoodItemDAOImpl implements FoodItemDAO {
 
         return entity;
     }
+
+    @Override
+    public FoodItemEntity getEntiyByNmae(String name) {
+        System.out.println("Geting the Entity by food name.");
+        FoodItemEntity foodItem = null;
+
+        EntityManagerFactory emf = null;
+        EntityManager em = null;
+
+        try {
+            emf = Persistence.createEntityManagerFactory("akasha");
+            em = emf.createEntityManager();
+            Query query = em.createNamedQuery("getEntityByName");
+            query.setParameter("name",name);
+            Object ref = query.getSingleResult();
+            System.out.println("The data is:"+ref);
+            foodItem = (FoodItemEntity) ref;
+
+        }catch (PersistenceException e){
+            e.printStackTrace();
+        }finally {
+            if(emf != null){
+                emf.close();
+            }
+
+            if(em != null){
+                em.close();
+            }
+        }
+        return foodItem;
+
+    }
+
+    @Override
+    public FoodItemEntity getEntityByPrice(Double price) {
+        System.out.println("The fooditementiy by price"+price);
+        FoodItemEntity foodItem = null;
+
+        EntityManagerFactory emf = null;
+        EntityManager em = null;
+
+        try {
+            emf = Persistence.createEntityManagerFactory("akasha");
+            em = emf.createEntityManager();
+            Query query = em.createNamedQuery("getEntityByPrice");
+            Object ref = query.getSingleResult();
+            query.setParameter("price",price);
+            foodItem = (FoodItemEntity) ref;
+
+        }catch (PersistenceException e){
+            e.printStackTrace();
+        }finally {
+            if(emf != null){
+                emf.close();
+            }
+
+            if(em != null){
+                em.close();
+            }
+        }
+
+        return foodItem;
+    }
+
+    @Override
+    public FoodItemEntity getEntityByCategory(String category) {
+        System.out.println("The fooditementity by category"+category);
+        FoodItemEntity foodItem = null;
+
+        EntityManagerFactory emf = null;
+        EntityManager em = null;
+
+        try {
+            emf = Persistence.createEntityManagerFactory("akasha");
+            em = emf.createEntityManager();
+            Query query = em.createNamedQuery("getEntityByCategory");
+            Object ref = query.getSingleResult();
+            query.setParameter("category",category);
+            foodItem = (FoodItemEntity) ref;
+
+        }catch (PersistenceException e){
+            e.printStackTrace();
+        }finally {
+            if(emf != null){
+                emf.close();
+            }
+
+            if(em != null){
+                em.close();
+            }
+        }
+
+        return foodItem;
+    }
+
+    @Override
+    public FoodItemEntity getEntityByQuantity(Integer quantity) {
+        System.out.println("The FoodItemEntity by quantity:"+quantity);
+        FoodItemEntity foodItem = null;
+
+        EntityManagerFactory emf = null;
+        EntityManager em = null;
+
+        try {
+            emf = Persistence.createEntityManagerFactory("akasha");
+            em = emf.createEntityManager();
+            Query query = em.createNamedQuery("getEntityByQuantity");
+            Object ref = query.getSingleResult();
+            query.setParameter("quantity",quantity);
+            foodItem = (FoodItemEntity) ref;
+
+        }catch (PersistenceException e){
+            e.printStackTrace();
+        }finally {
+            if(emf != null){
+                emf.close();
+            }
+
+            if(em != null){
+                em.close();
+            }
+        }
+
+        return foodItem;
+    }
 }

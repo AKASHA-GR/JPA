@@ -7,7 +7,7 @@ import java.io.Serializable;
 @Getter
 @Setter
 @ToString
-@RequiredArgsConstructor
+@NoArgsConstructor
 
 public class FoodItemDTO implements Serializable {
     private String name;

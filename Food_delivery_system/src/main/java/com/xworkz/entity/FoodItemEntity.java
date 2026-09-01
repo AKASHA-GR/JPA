@@ -9,6 +9,17 @@ import javax.persistence.*;
 @RequiredArgsConstructor
 @Entity
 @Table(name = "foodItem_info")
+@NamedQuery(name = "getAllFoodEntity",query = "select f from FoodItemEntity f")
+@NamedQuery(name = "getEntityByName",query = "select f from FoodItemEntity f where name = :name")
+@NamedQuery(name = "getEntityByPrice",query = "select f from FoodItemEntity f where price=:price")
+@NamedQuery(name = "getEntityByCategory",query = "select f from FoodItemEntity f where category=:category")
+@NamedQuery(name = "getEntityByQuantity",query = "select f from FoodItemEntity f where quantity=:quantity")
+//@NamedQuery(name = "",query = "");
+//@NamedQuery(name = "",query = "");
+//@NamedQuery(name = "",query = "");
+//@NamedQuery(name = "",query = "");
+//@NamedQuery(name = "",query = "");
+
 public class FoodItemEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -11,4 +11,6 @@ public interface FoodItemService {
     public String saveAndValidate(List<FoodItemDTO> foodItemDTOList);
 
     public FoodItemDTO findFoodDTOById(Integer id);
+
+    public FoodItemDTO findFoodDTOByName(String name);
 }
