@@ -14,9 +14,9 @@ import javax.persistence.*;
 @NamedQuery(name = "getEntityByPrice",query = "select f from FoodItemEntity f where price=:price")
 @NamedQuery(name = "getEntityByCategory",query = "select f from FoodItemEntity f where category=:category")
 @NamedQuery(name = "getEntityByQuantity",query = "select f from FoodItemEntity f where quantity=:quantity")
-//@NamedQuery(name = "",query = "");
-//@NamedQuery(name = "",query = "");
-//@NamedQuery(name = "",query = "");
+
+@NamedQuery(name = "updateByName",query = "update FoodItemEntity f set f.name= :name where f.id=:id")
+@NamedQuery(name = "updateByAvailable",query = "u")
 //@NamedQuery(name = "",query = "");
 //@NamedQuery(name = "",query = "");
 

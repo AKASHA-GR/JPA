@@ -26,8 +26,8 @@ public class FoodRunner {
 //        service1.saveAndValidate(foodItemDTOList);
 //
 //        //find by Id
-//        FoodItemDTO foodItemDTO1 = service1.findFoodDTOById(7);
-//        System.out.println("The entity:"+foodItemDTO1);
+        FoodItemDTO foodItemDTO1 = service1.findFoodDTOById(7);
+        System.out.println("The entity:"+foodItemDTO1);
 
         //find ny name
         FoodItemDTO foodItemDTO2 = service1.findFoodDTOByName("adc");
