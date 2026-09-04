@@ -87,4 +87,36 @@ public class FoodItemServiceImpl implements FoodItemService {
 
         return foodItemDTO;
     }
+
+    @Override
+    public String updateNameAndPriceById(String name, Double price, Integer id) {
+        System.out.println("Invoking updateNameAndById : Service");
+        String status = null;
+        if (id != null && id > 0 && name != null && price != null) {
+            Boolean isUpdated = foodItemDAO.updateNameAndPriceById(name, price, id);
+            if (isUpdated) {
+                status = "Data Updated";
+            } else {
+                status = "Data Not Updated";
+            }
+        }
+
+        return status;
+    }
+
+    @Override
+    public String updateQuantityByAvailable(Boolean available, Integer quatity) {
+        System.out.println("Invoking updateQuantityByAvailable : Service");
+        String status = null;
+        if (available != null && quatity != null && quatity > 0) {
+            Boolean isUpdated = foodItemDAO.updateQuantityByAvailable(available, quatity);
+            if (isUpdated) {
+                status = "Data Updated";
+            } else {
+                status = "Data Not Updated";
+            }
+        }
+
+        return status;
+    }
 }

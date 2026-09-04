@@ -22,16 +22,23 @@ public class FoodRunner {
 //        foodItemDTOList.add(new FoodItemDTO("Veg Biryani",150,"Aromatic","Dinner",true,2));
 //        foodItemDTOList.add(new FoodItemDTO("Curd Rice",50,"Cooling","Lunch",true,5));
 //
-        FoodItemService service1 = new FoodItemServiceImpl();
-//        service1.saveAndValidate(foodItemDTOList);
+//        FoodItemService service1 = new FoodItemServiceImpl();
+////        service1.saveAndValidate(foodItemDTOList);
+////
+////        //find by Id
+//        FoodItemDTO foodItemDTO1 = service1.findFoodDTOById(7);
+//        System.out.println("The entity:"+foodItemDTO1);
 //
-//        //find by Id
-        FoodItemDTO foodItemDTO1 = service1.findFoodDTOById(7);
-        System.out.println("The entity:"+foodItemDTO1);
+//        //find ny name
+//        FoodItemDTO foodItemDTO2 = service1.findFoodDTOByName("adc");
+//        System.out.println("The found name:"+foodItemDTO2);
 
-        //find ny name
-        FoodItemDTO foodItemDTO2 = service1.findFoodDTOByName("adc");
-        System.out.println("The found name:"+foodItemDTO2);
 
+        //update
+//        String updateStatus1 = service1.updateNameAndPriceById("Dosa", 85.0, 7);
+//        System.out.println("Update Name and Price Status: " + updateStatus1);
+//
+//        String updateStatus2 = service1.updateQuantityByAvailable(true, 10);
+//        System.out.println("Update Quantity by Available Status: " + updateStatus2);
     }
 }

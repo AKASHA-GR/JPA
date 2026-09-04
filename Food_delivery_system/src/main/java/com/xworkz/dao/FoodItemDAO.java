@@ -18,4 +18,11 @@ public interface FoodItemDAO {
     public FoodItemEntity getEntityByCategory(String category);
 
     public FoodItemEntity getEntityByQuantity(Integer quantity);
+
+    //update
+    public Boolean updateNameAndPriceById(String name, Double price, Integer id);
+    public Boolean updateQuantityByAvailable(Boolean available, Integer quatity);
+
+    //col list
+    List<String> getFoodNames();
 }

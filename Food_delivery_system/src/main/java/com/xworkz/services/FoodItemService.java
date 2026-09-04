@@ -13,4 +13,10 @@ public interface FoodItemService {
     public FoodItemDTO findFoodDTOById(Integer id);
 
     public FoodItemDTO findFoodDTOByName(String name);
+
+    //update
+
+    public String updateNameAndPriceById(String name, Double price, Integer id);
+
+    public String updateQuantityByAvailable(Boolean available, Integer quatity);
 }

@@ -225,4 +225,81 @@ public class FoodItemDAOImpl implements FoodItemDAO {
 
         return foodItem;
     }
+
+    @Override
+    public Boolean updateNameAndPriceById(String name, Double price, Integer id) {
+        System.out.println("Invoking updateNameAndPriceById method");
+        boolean isUpdated = false;
+        EntityManager em = null;
+        EntityTransaction et = null;
+
+        try{
+            em = emf.createEntityManager();
+            et = em.getTransaction();
+            et.begin();
+            Query query = em.createNamedQuery("updateNameAndPriceById");
+            query.setParameter("name",name);
+            query.setParameter("price",price);
+            query.setParameter("id",id);
+
+            int rowUpdated = query.executeUpdate();
+
+            if(rowUpdated > 0){
+                isUpdated = true;
+            }
+
+            et.commit();
+        }catch (PersistenceException e){
+            e.printStackTrace();
+            et.rollback();
+        }finally {
+            if(em != null){
+                em.close();
+            }
+        }
+
+        return isUpdated;
+    }
+
+    @Override
+    public Boolean updateQuantityByAvailable(Boolean available, Integer quatity) {
+        System.out.println("Invoking updateQuantityByAvailable method");
+        boolean isUpdated = false;
+        EntityManager em = null;
+        EntityTransaction et = null;
+
+        try{
+            em = emf.createEntityManager();
+            et = em.getTransaction();
+            et.begin();
+            Query query = em.createNamedQuery("updateQuantityByAvailable");
+            query.setParameter("available",available);
+            query.setParameter("quantity",quatity);
+
+            int rowUpdated = query.executeUpdate();
+
+            if(rowUpdated > 0){
+                isUpdated = true;
+            }
+
+            et.commit();
+        }catch (PersistenceException e){
+            e.printStackTrace();
+            et.rollback();
+        }finally {
+            if(em != null){
+                em.close();
+            }
+        }
+
+        return isUpdated;
+    }
+
+    @Override
+    public List<String> getFoodNames() {
+        System.out.println("Geting the food name list");
+
+        
+        return List.of();
+    }
 }
