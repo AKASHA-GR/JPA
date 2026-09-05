@@ -2,7 +2,6 @@ package com.xworkz.services;
 
 import com.xworkz.dto.FoodItemDTO;
 
-import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 
 public interface FoodItemService {
@@ -19,4 +18,7 @@ public interface FoodItemService {
     public String updateNameAndPriceById(String name, Double price, Integer id);
 
     public String updateQuantityByAvailable(Boolean available, Integer quatity);
+
+    //
+    public List<String> getFoodName();
 }

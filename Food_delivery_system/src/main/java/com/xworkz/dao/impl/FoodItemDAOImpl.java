@@ -4,6 +4,7 @@ import com.xworkz.dao.FoodItemDAO;
 import com.xworkz.entity.FoodItemEntity;
 
 import javax.persistence.*;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -298,8 +299,41 @@ public class FoodItemDAOImpl implements FoodItemDAO {
     @Override
     public List<String> getFoodNames() {
         System.out.println("Geting the food name list");
+        EntityManager em = emf.createEntityManager();
 
-        
+        List<String> names  = Collections.emptyList();
+        try{
+            names = em.createQuery("select f.name from FoodItemEntity f").getResultList();
+        }catch (PersistenceException e){
+            e.printStackTrace();
+        }finally {
+            em.close();
+        }
+
+        return names;
+    }
+
+    @Override
+    public List<Object[]> getItemDiscriptionAndCetogary() {
+        System.out.println("getItemDiscriptionAndCetogary : DAO");
+        List<Object[]> food = Collections.emptyList();
+
+        try{
+            food = emf.createEntityManager()
+                    .createQuery("select f.description f.category from FoodItemEntity")
+                    .getResultList();
+        }catch (PersistenceException e){
+            e.printStackTrace();
+        }
+        return food;
+    }
+
+
+
+    @Override
+    public List<List<Object>> getFoodNameAndPrice() {
+        System.out.println("getFoodNameAndPrice : DAO");
+        List
         return List.of();
     }
 }

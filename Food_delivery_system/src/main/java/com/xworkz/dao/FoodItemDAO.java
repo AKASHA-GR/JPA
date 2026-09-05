@@ -25,4 +25,8 @@ public interface FoodItemDAO {
 
     //col list
     List<String> getFoodNames();
+
+    List<Object[]> getItemDiscriptionAndCetogary();
+
+    List<List<Object>> getFoodNameAndPrice();
 }

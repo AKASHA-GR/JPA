@@ -6,6 +6,7 @@ import com.xworkz.dto.FoodItemDTO;
 import com.xworkz.entity.FoodItemEntity;
 import com.xworkz.services.FoodItemService;
 
+import java.util.Collections;
 import java.util.List;
 
 public class FoodItemServiceImpl implements FoodItemService {
@@ -118,5 +119,17 @@ public class FoodItemServiceImpl implements FoodItemService {
         }
 
         return status;
+    }
+
+    @Override
+    public List<String> getFoodName() {
+        System.out.println("The get food names : service");
+
+        List<String> foundNames = foodItemDAO.getFoodNames();
+
+        if (foundNames != null){
+            return foundNames;
+        }
+        return Collections.emptyList();
     }
 }

@@ -22,7 +22,7 @@ public class FoodRunner {
 //        foodItemDTOList.add(new FoodItemDTO("Veg Biryani",150,"Aromatic","Dinner",true,2));
 //        foodItemDTOList.add(new FoodItemDTO("Curd Rice",50,"Cooling","Lunch",true,5));
 //
-//        FoodItemService service1 = new FoodItemServiceImpl();
+        FoodItemService service1 = new FoodItemServiceImpl();
 ////        service1.saveAndValidate(foodItemDTOList);
 ////
 ////        //find by Id
@@ -40,5 +40,16 @@ public class FoodRunner {
 //
 //        String updateStatus2 = service1.updateQuantityByAvailable(true, 10);
 //        System.out.println("Update Quantity by Available Status: " + updateStatus2);
+
+
+         //single column
+        List<String> names = service1.getFoodName();
+        System.out.println(names);
+
+        //
+
+
     }
+
+
 }
