@@ -46,7 +46,14 @@ public class FoodRunner {
         List<String> names = service1.getFoodName();
         System.out.println(names);
 
-        //
+        //single column using array
+        List<Object[]> food1 = service1.getItemDiscriptionAndCetogary();
+        for(Object[] food : food1){
+            System.out.println("Discription:"+food[0]);
+            System.out.println("Cetogary:"+food[1]);
+        }
+
+        //single column using List<Object>
 
 
     }

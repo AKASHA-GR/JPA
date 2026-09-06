@@ -132,4 +132,25 @@ public class FoodItemServiceImpl implements FoodItemService {
         }
         return Collections.emptyList();
     }
+
+    @Override
+    public List<Object[]> getItemDiscriptionAndCetogary() {
+        System.out.println("getItemDiscriptionAndCetogary : service");
+        List<Object[]> food = foodItemDAO.getItemDiscriptionAndCetogary();
+        if(food != null){
+            return food;
+        }
+        return Collections.emptyList();
+    }
+
+
+    @Override
+    public List<List<Object>> getFoodNameAndPrice() {
+        System.out.println("getFoodNameAndPrice : Service");
+        List<List<Object>> food = foodItemDAO.getFoodNameAndPrice();
+        if(food != null){
+            return food;
+        }
+        return Collections.emptyList();
+    }
 }

@@ -21,4 +21,8 @@ public interface FoodItemService {
 
     //
     public List<String> getFoodName();
+
+    List<Object[]> getItemDiscriptionAndCetogary();
+
+    List<List<Object>> getFoodNameAndPrice();
 }

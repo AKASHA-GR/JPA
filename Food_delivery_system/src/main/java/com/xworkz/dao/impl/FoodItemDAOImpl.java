@@ -4,6 +4,8 @@ import com.xworkz.dao.FoodItemDAO;
 import com.xworkz.entity.FoodItemEntity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -320,7 +322,7 @@ public class FoodItemDAOImpl implements FoodItemDAO {
 
         try{
             food = emf.createEntityManager()
-                    .createQuery("select f.description f.category from FoodItemEntity")
+                    .createQuery("select f.description, f.category from FoodItemEntity f")
                     .getResultList();
         }catch (PersistenceException e){
             e.printStackTrace();
@@ -333,7 +335,22 @@ public class FoodItemDAOImpl implements FoodItemDAO {
     @Override
     public List<List<Object>> getFoodNameAndPrice() {
         System.out.println("getFoodNameAndPrice : DAO");
-        List
-        return List.of();
+
+        List<List<Object>> foods = new ArrayList<>();
+
+        try{
+            List<Object[]> food = emf.createEntityManager()
+                    .createQuery("select f.itemName, f.itemPrice from FoodItemEntity f")
+                    .getResultList();
+
+            for(Object[] item : food){
+                foods.add(Arrays.asList(item));
+            }
+
+        }catch (PersistenceException e){
+            e.printStackTrace();
+        }
+        return foods;
+
     }
 }
