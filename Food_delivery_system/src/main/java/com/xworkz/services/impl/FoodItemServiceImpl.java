@@ -63,7 +63,7 @@ public class FoodItemServiceImpl implements FoodItemService {
             FoodItemEntity entity = foodItemDAO.getEntity(id);
 
             if(entity != null){
-                foodItemDTO = new FoodItemDTO(entity.getName(),entity.getPrice(),entity.getDescription(),entity.getCategory(),entity.getAvailable(),entity.getQuantity());
+                foodItemDTO = new FoodItemDTO(entity.getName(),entity.getPrice(),entity.getDescription(),entity.getCategory(),entity.getAvailable(),entity.getQuantity(),"");
             }
 
         }else {
@@ -83,7 +83,7 @@ public class FoodItemServiceImpl implements FoodItemService {
         System.out.println("The Data:"+foodItemEntity);
 
         if(foodItemEntity != null){
-            foodItemDTO = new FoodItemDTO(foodItemEntity.getName(), foodItemEntity.getPrice(), foodItemEntity.getDescription(), foodItemEntity.getCategory(), foodItemEntity.getAvailable(),foodItemEntity.getQuantity());
+            foodItemDTO = new FoodItemDTO(foodItemEntity.getName(), foodItemEntity.getPrice(), foodItemEntity.getDescription(), foodItemEntity.getCategory(), foodItemEntity.getAvailable(),foodItemEntity.getQuantity(),"");
         }
 
         return foodItemDTO;

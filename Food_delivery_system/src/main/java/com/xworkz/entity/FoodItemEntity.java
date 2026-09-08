@@ -17,25 +17,33 @@ import javax.persistence.*;
 
 @NamedQuery(name = "updateNameAndPriceById",query = "update FoodItemEntity f set f.name= :name, f.price=:price where f.id=:id")
 @NamedQuery(name = "updateQuantityByAvailable",query = "update FoodItemEntity f set f.quantity=:quantity where f.available=:available ")
-//@NamedQuery(name = "",query = "");
-//@NamedQuery(name = "",query = "");
+
+@NamedQuery(name = "updateVerityColumn",query = "select f from FoodItemEntity f where verity is null")
 
 public class FoodItemEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(name = "itemName")
+    @NonNull
     private String name;
     @Column(name = "itemPrice")
+    @NonNull
     private double price;
     @Column(name = "itemDescription")
+    @NonNull
     private String description;
     @Column(name = "itemCategory")
+    @NonNull
     private String category;
     @Column(name = "status")
+    @NonNull
     private Boolean available;
     @Column(name = "quantity")
+    @NonNull
     private Integer quantity;
+    @NonNull
+    private String verity;
 
     public FoodItemEntity(String name, double price, String description, String category, Boolean available, Integer quantity) {
         this.name = name;

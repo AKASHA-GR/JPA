@@ -353,4 +353,30 @@ public class FoodItemDAOImpl implements FoodItemDAO {
         return foods;
 
     }
+
+    @Override
+    public Boolean updateVerity() {
+        Boolean isUpdate = false;
+        EntityManager em = null;
+        EntityTransaction et =null;
+
+        try {
+            em = emf.createEntityManager();
+            et = em.getTransaction();
+            et.begin();
+
+            List<FoodItemEntity> foodItemEntityList = em.createNamedQuery("updateVerityColumn").getResultList();
+
+            for(FoodItemEntity verity:foodItemEntityList){
+                verity.setVerity("10 Types");
+            }
+            em.flush();
+            et.commit();
+            isUpdate = true;
+        }catch (PersistenceException e){
+            e.printStackTrace();
+        }
+
+        return isUpdate;
+    }
 }

@@ -1,5 +1,7 @@
 package com.xworkz.runner;
 
+import com.xworkz.dao.FoodItemDAO;
+import com.xworkz.dao.impl.FoodItemDAOImpl;
 import com.xworkz.dto.FoodItemDTO;
 import com.xworkz.services.FoodItemService;
 import com.xworkz.services.impl.FoodItemServiceImpl;
@@ -42,19 +44,23 @@ public class FoodRunner {
 //        System.out.println("Update Quantity by Available Status: " + updateStatus2);
 
 
-         //single column
-        List<String> names = service1.getFoodName();
-        System.out.println(names);
-
-        //single column using array
-        List<Object[]> food1 = service1.getItemDiscriptionAndCetogary();
-        for(Object[] food : food1){
-            System.out.println("Discription:"+food[0]);
-            System.out.println("Cetogary:"+food[1]);
-        }
+//         //single column
+//        List<String> names = service1.getFoodName();
+//        System.out.println(names);
+//
+//        //single column using array
+//        List<Object[]> food1 = service1.getItemDiscriptionAndCetogary();
+//        for(Object[] food : food1){
+//            System.out.println("Discription:"+food[0]);
+//            System.out.println("Cetogary:"+food[1]);
+//        }
 
         //single column using List<Object>
 
+        FoodItemDAO foodItemDAO = new FoodItemDAOImpl();
+        boolean result = foodItemDAO.updateVerity();
+
+        System.out.println("Verity update:"+result);
 
     }
 

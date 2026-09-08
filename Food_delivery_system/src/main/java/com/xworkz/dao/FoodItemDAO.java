@@ -29,4 +29,7 @@ public interface FoodItemDAO {
     List<Object[]> getItemDiscriptionAndCetogary();
 
     List<List<Object>> getFoodNameAndPrice();
+
+    //alter table
+    Boolean updateVerity();
 }
