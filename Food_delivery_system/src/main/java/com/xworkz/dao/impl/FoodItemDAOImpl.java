@@ -85,6 +85,43 @@ public class FoodItemDAOImpl implements FoodItemDAO {
     }
 
     @Override
+    public Boolean saveFoodInfo(FoodItemEntity foodItemEntity) {
+        System.out.println("Running saveFoodInfo method in FoodItemDAOImpl");
+        Boolean isSaved = false;
+
+        if(foodItemEntity != null){
+            EntityManager em = null;
+            EntityTransaction et = null;
+
+            try{
+                em = emf.createEntityManager();
+                et = em.getTransaction();
+                et.begin();
+
+                em.persist(foodItemEntity);
+
+                et.commit();
+                isSaved = true;
+            }catch (PersistenceException e){
+                if(et != null){
+                    et.rollback();
+                }
+                e.printStackTrace();
+            }finally {
+                if(emf != null){
+                    emf.close();
+                }
+
+                if(em != null){
+                    em.close();
+                }
+            }
+        }
+        return isSaved;
+    }
+
+
+    @Override
     public FoodItemEntity getEntity(Integer id) {
         System.out.println("Getting the by id:"+id);
         FoodItemEntity entity = null;

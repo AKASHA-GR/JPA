@@ -45,7 +45,7 @@ public class FoodItemEntity {
     @NonNull
     private String verity;
 
-    public FoodItemEntity(String name, double price, String description, String category, Boolean available, Integer quantity) {
+    public FoodItemEntity() {
         this.name = name;
         this.price = price;
         this.description = description;

@@ -5,7 +5,9 @@ import com.xworkz.dao.impl.FoodItemDAOImpl;
 import com.xworkz.dto.FoodItemDTO;
 import com.xworkz.services.FoodItemService;
 import com.xworkz.services.impl.FoodItemServiceImpl;
+import lombok.NonNull;
 
+import javax.persistence.Column;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,13 +58,24 @@ public class FoodRunner {
 //        }
 
         //single column using List<Object>
+//
+//        FoodItemDAO foodItemDAO = new FoodItemDAOImpl();
+//        boolean result = foodItemDAO.updateVerity();
+//
+//        System.out.println("Verity update:"+result);
 
-        FoodItemDAO foodItemDAO = new FoodItemDAOImpl();
-        boolean result = foodItemDAO.updateVerity();
-
-        System.out.println("Verity update:"+result);
+        System.out.println("---save the dto though validation in service---");
+        FoodItemService foodItemService = new FoodItemServiceImpl();
+        FoodItemDTO foodItemDTO = new FoodItemDTO();
+        foodItemDTO.setName("Pongal");
+        foodItemDTO.setPrice(45);
+        foodItemDTO.setDescription("with chatni and mirchi");
+        foodItemDTO.setCategory("Breakfast");
+        foodItemDTO.setAvailable(true);
+        foodItemDTO.setQuantity(2);
+        foodItemDTO.setVerity("3 type");
+        String res = foodItemService.validateAndsaveFoodInfo(foodItemDTO);
+        System.out.println("result of validated save:---"+res);
 
     }
-
-
 }

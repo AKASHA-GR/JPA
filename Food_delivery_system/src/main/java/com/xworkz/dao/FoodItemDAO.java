@@ -1,5 +1,6 @@
 package com.xworkz.dao;
 
+import com.xworkz.dto.FoodItemDTO;
 import com.xworkz.entity.FoodItemEntity;
 
 import java.util.List;
@@ -8,6 +9,8 @@ public interface FoodItemDAO {
     public Boolean save(FoodItemEntity foodItemEntity);
 
     public Boolean saveAll(List<FoodItemEntity> foodItemEntities);
+
+    public Boolean saveFoodInfo(FoodItemEntity foodItemEntity);
 
     public FoodItemEntity getEntity(Integer id);
 

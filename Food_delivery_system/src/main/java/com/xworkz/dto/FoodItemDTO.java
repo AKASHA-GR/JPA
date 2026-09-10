@@ -2,6 +2,8 @@ package com.xworkz.dto;
 
 import lombok.*;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 @Getter
@@ -10,6 +12,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 
 public class FoodItemDTO implements Serializable {
+
     private String name;
     private double price;
     private String description;

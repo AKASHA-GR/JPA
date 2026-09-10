@@ -5,9 +5,12 @@ import com.xworkz.dao.impl.FoodItemDAOImpl;
 import com.xworkz.dto.FoodItemDTO;
 import com.xworkz.entity.FoodItemEntity;
 import com.xworkz.services.FoodItemService;
+import com.xworkz.utill.ValidationUtil;
 
+import javax.validation.ConstraintViolation;
 import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 public class FoodItemServiceImpl implements FoodItemService {
 
@@ -44,12 +47,42 @@ public class FoodItemServiceImpl implements FoodItemService {
         String validate = "The data is not valid";
 
         List<FoodItemEntity> entityList = foodItemDTOList.stream()
-                .map(FoodItemDTO -> new FoodItemEntity(FoodItemDTO.getName(), FoodItemDTO.getPrice(),FoodItemDTO.getDescription(),FoodItemDTO.getCategory(),FoodItemDTO.getAvailable(),FoodItemDTO.getQuantity()))
+                .map(FoodItemDTO -> new FoodItemEntity())
                 .toList();
 
         Boolean status = foodItemDAO.saveAll(entityList);
 
         return validate;
+    }
+
+    @Override
+    public String validateAndsaveFoodInfo(FoodItemDTO dto) {
+        System.out.println("Runing ValidateAndsaveFoodInfo method in FoodItemServiceImpl");
+        String isSavd = null;
+        if(dto != null){
+            Set<ConstraintViolation<FoodItemDTO>> validation = ValidationUtil.getValidator().validate(dto);
+            System.out.println("Ref of constriantVoilation:" +validation);
+
+            if(validation.isEmpty()){
+                FoodItemEntity entity = new FoodItemEntity();
+                entity.setName(dto.getName());
+                entity.setPrice(dto.getPrice());
+                entity.setDescription(dto.getDescription());
+                entity.setCategory(dto.getCategory());
+                entity.setAvailable(dto.getAvailable());
+                entity.setQuantity(dto.getQuantity());
+                entity.setVerity(dto.getVerity());
+
+                Boolean result = foodItemDAO.saveFoodInfo(entity);
+
+                if(result == true){
+                    isSavd = "Data saved successfully in Table";
+                }else{
+                    isSavd = "Data is not saved";
+                }
+            }
+        }
+        return isSavd;
     }
 
     @Override
@@ -72,6 +105,8 @@ public class FoodItemServiceImpl implements FoodItemService {
 
         return foodItemDTO;
     }
+
+
 
     @Override
     public FoodItemDTO findFoodDTOByName(String name) {
