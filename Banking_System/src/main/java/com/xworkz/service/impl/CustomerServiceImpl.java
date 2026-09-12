@@ -10,6 +10,8 @@ import java.util.List;
 
 public class CustomerServiceImpl implements CustomerService {
 
+    System.out.println("The service implementation");
+
     CustomerDetailDAO customerDetailDAO = new CoustomerDetailDAOImpl();
 
 
