@@ -45,6 +45,8 @@ public class CoustomerDetailDAOImpl implements CustomerDetailDAO {
 
     @Override
     public Boolean saveAll(List<CustomerDetailEntity> customerDetailEntityList) {
+
+        System.out.println("The save multiple data");
         Boolean isSaved = false;
 
         EntityManagerFactory emf = null;
