@@ -12,6 +12,8 @@ public class CustomerServiceImpl implements CustomerService {
 
     System.out.println("The service implementation");
 
+    System.out.println("Converting the DTO to Entity.");
+
     CustomerDetailDAO customerDetailDAO = new CoustomerDetailDAOImpl();
 
 
